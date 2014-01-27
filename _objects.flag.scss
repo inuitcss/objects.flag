@@ -116,3 +116,21 @@
     }
 
 }
+
+
+
+
+
+/**
+ * Flush flag objects have no space between the image- and text-content.
+ */
+.#{$namespace}flag--flush,
+%#{$namespace}flag--flush {
+
+    .#{$namespace}flag__img,
+    %#{$namespace}flag__img {
+        padding-right: 0;
+        padding-left:  0;
+    }
+
+}
