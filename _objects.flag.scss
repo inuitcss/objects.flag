@@ -51,7 +51,7 @@
      */
     .#{$namespace}flag__body,
     %#{$namespace}flag__body {
-        width: 100%;
+        width: 100%; /* [1] */
     }
 
 
@@ -62,15 +62,25 @@
  * Reversed flag objects have their image-content to the right, and text-content
  * to the left.
  *
- * 1. Reassign margins to the correct sides.
+ * 1. Swap the rendered direction of the object…
+ * 2. …and reset it.
+ * 3. Reassign margins to the correct sides.
  */
 .#{$namespace}flag--rev,
 %#{$namespace}flag--rev {
+    direction: rtl; /* [1] */
+
+    > .#{$namespace}flag__img,
+    > %#{$namespace}flag__img,
+    > .#{$namespace}flag__body,
+    > %#{$namespace}flag__body {
+        direction: ltr; /* [2] */
+    }
 
     > .#{$namespace}flag__img,
     > %#{$namespace}flag__img {
-        padding-right: 0; /* [1] */
-        padding-left: $base-spacing-unit; /* [1] */
+        padding-right: 0; /* [3] */
+        padding-left: $base-spacing-unit; /* [3] */
     }
 
 }
