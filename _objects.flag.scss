@@ -2,7 +2,12 @@
     #Flag
 \*------------------------------------*/
 
-$flag-gutter:  $base-spacing-unit !default;
+$flag-gutter:           $base-spacing-unit !default;
+$flag-gutter--small:    halve($flag-gutter) !default;
+$flag-gutter--large:    double($flag-gutter) !default;
+
+$enable-flag--small:    false !default;
+$enable-flag--large:    false !default;
 
 /**
  * The flag object is a design pattern similar to the media object, however it
@@ -83,6 +88,64 @@ $flag-gutter:  $base-spacing-unit !default;
     > %#{$namespace}flag__img {
         padding-right: 0; /* [3] */
         padding-left: $flag-gutter; /* [3] */
+    }
+
+}
+
+
+
+
+
+/**
+ * Size variants.
+ */
+
+@if ($enable-flag--small == true) {
+
+    .#{$namespace}flag--small,
+    %#{$namespace}flag--small {
+
+        > .#{$namespace}flag__img,
+        > %#{$namespace}flag__img {
+            padding-right: $flag-gutter--small;
+        }
+
+        &.#{$namespace}flag--rev,
+        &%#{$namespace}flag--rev {
+
+            > .#{$namespace}flag__img,
+            > %#{$namespace}flag__img {
+                padding-right: 0;
+                padding-left:  $flag-gutter--small;
+            }
+
+        }
+
+    }
+
+}
+
+@if ($enable-flag--large == true) {
+
+    .#{$namespace}flag--large,
+    %#{$namespace}flag--large {
+
+        > .#{$namespace}flag__img,
+        > %#{$namespace}flag__img {
+            padding-right: $flag-gutter--large;
+        }
+
+        &.#{$namespace}flag--rev,
+        &%#{$namespace}flag--rev {
+
+            > .#{$namespace}flag__img,
+            > %#{$namespace}flag__img {
+                padding-right: 0;
+                padding-left:  $flag-gutter--large;
+            }
+
+        }
+
     }
 
 }
