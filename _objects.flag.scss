@@ -1,7 +1,14 @@
 /*------------------------------------*\
-    #Flag
+    #FLAG
 \*------------------------------------*/
 
+/**
+ * The flag object is a design pattern similar to the media object, however it
+ * utilises `display: table[-cell];` to give us control over the vertical
+ * alignments of the text and image. csswizardry.com/2013/05/the-flag-object
+ *
+ * Predefine the variables below in order to alter and enable specific features.
+ */
 $flag-gutter:           $base-spacing-unit !default;
 $flag-gutter--small:    halve($flag-gutter) !default;
 $flag-gutter--large:    double($flag-gutter) !default;
@@ -9,11 +16,11 @@ $flag-gutter--large:    double($flag-gutter) !default;
 $enable-flag--small:    false !default;
 $enable-flag--large:    false !default;
 
+
+
+
+
 /**
- * The flag object is a design pattern similar to the media object, however it
- * utilises `display: table[-cell];` to give us control over the vertical
- * alignments of the text and image. csswizardry.com/2013/05/the-flag-object
- *
  * 1. Allows us to control vertical alignments
  * 2. Force the object to be the full width of its parent. Combined with [1],
  *    this makes the object behave in a quasi-`display: block;` manner.
