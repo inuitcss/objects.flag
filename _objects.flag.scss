@@ -1,6 +1,8 @@
 /*------------------------------------*\
-    #flag
+    #Flag
 \*------------------------------------*/
+
+$flag-gutter:  $base-spacing-unit !default;
 
 /**
  * The flag object is a design pattern similar to the media object, however it
@@ -35,7 +37,7 @@
      */
     .#{$namespace}flag__img,
     %#{$namespace}flag__img {
-        padding-right: $base-spacing-unit;
+        padding-right: $flag-gutter;
 
         > img {
             display: block;
@@ -80,7 +82,7 @@
     > .#{$namespace}flag__img,
     > %#{$namespace}flag__img {
         padding-right: 0; /* [3] */
-        padding-left: $base-spacing-unit; /* [3] */
+        padding-left: $flag-gutter; /* [3] */
     }
 
 }
