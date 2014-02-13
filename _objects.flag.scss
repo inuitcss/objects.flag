@@ -15,10 +15,10 @@ $flag-gutter--large:    double($flag-gutter) !default;
 
 $enable-flag--small:    false !default;
 $enable-flag--large:    false !default;
+$enable-flag--flush:    false !default;
 $enable-flag--rev:      false !default;
 $enable-flag--top:      false !default;
 $enable-flag--bottom:   false !default;
-$enable-flag--flush:    false !default;
 
 
 
@@ -71,42 +71,6 @@ $enable-flag--flush:    false !default;
     %#{$namespace}flag__body {
         width: 100%; /* [1] */
     }
-
-
-
-
-
-/**
- * Reversed flag objects have their image-content to the right, and text-content
- * to the left.
- *
- * 1. Swap the rendered direction of the object…
- * 2. …and reset it.
- * 3. Reassign margins to the correct sides.
- */
-
-@if ($enable-flag--rev == true) {
-
-    .#{$namespace}flag--rev,
-    %#{$namespace}flag--rev {
-        direction: rtl; /* [1] */
-
-        > .#{$namespace}flag__img,
-        > %#{$namespace}flag__img,
-        > .#{$namespace}flag__body,
-        > %#{$namespace}flag__body {
-            direction: ltr; /* [2] */
-        }
-
-        > .#{$namespace}flag__img,
-        > %#{$namespace}flag__img {
-            padding-right: 0; /* [3] */
-            padding-left: $flag-gutter; /* [3] */
-        }
-
-    }
-
-}
 
 
 
@@ -171,6 +135,65 @@ $enable-flag--flush:    false !default;
 
 
 /**
+ * Flush flag objects have no space between the image- and text-content.
+ */
+
+@if ($enable-flag--flush == true) {
+
+    .#{$namespace}flag--flush,
+    %#{$namespace}flag--flush {
+
+        .#{$namespace}flag__img,
+        %#{$namespace}flag__img {
+            padding-right: 0;
+            padding-left:  0;
+        }
+
+    }
+
+}
+
+
+
+
+
+/**
+ * Reversed flag objects have their image-content to the right, and text-content
+ * to the left.
+ *
+ * 1. Swap the rendered direction of the object…
+ * 2. …and reset it.
+ * 3. Reassign margins to the correct sides.
+ */
+
+@if ($enable-flag--rev == true) {
+
+    .#{$namespace}flag--rev,
+    %#{$namespace}flag--rev {
+        direction: rtl; /* [1] */
+
+        > .#{$namespace}flag__img,
+        > %#{$namespace}flag__img,
+        > .#{$namespace}flag__body,
+        > %#{$namespace}flag__body {
+            direction: ltr; /* [2] */
+        }
+
+        > .#{$namespace}flag__img,
+        > %#{$namespace}flag__img {
+            padding-right: 0; /* [3] */
+            padding-left: $flag-gutter; /* [3] */
+        }
+
+    }
+
+}
+
+
+
+
+
+/**
  * Vertical alignment variations of the flag object. Either align image- and
  * text-content to the tops of bottoms of each other.
  */
@@ -201,29 +224,6 @@ $enable-flag--flush:    false !default;
         .#{$namespace}flag__body,
         %#{$namespace}flag__body {
             vertical-align: bottom;
-        }
-
-    }
-
-}
-
-
-
-
-
-/**
- * Flush flag objects have no space between the image- and text-content.
- */
-
-@if ($enable-flag--flush == true) {
-
-    .#{$namespace}flag--flush,
-    %#{$namespace}flag--flush {
-
-        .#{$namespace}flag__img,
-        %#{$namespace}flag__img {
-            padding-right: 0;
-            padding-left:  0;
         }
 
     }
