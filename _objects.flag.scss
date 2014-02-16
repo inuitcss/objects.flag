@@ -9,16 +9,16 @@
  *
  * Predefine the variables below in order to alter and enable specific features.
  */
-$flag-gutter:           $base-spacing-unit !default;
-$flag-gutter--small:    halve($flag-gutter) !default;
-$flag-gutter--large:    double($flag-gutter) !default;
+$inuit-flag-gutter:         $inuit-base-spacing-unit !default;
+$inuit-flag-gutter--small:  halve($inuit-flag-gutter) !default;
+$inuit-flag-gutter--large:  double($inuit-flag-gutter) !default;
 
-$enable-flag--small:    false !default;
-$enable-flag--large:    false !default;
-$enable-flag--flush:    false !default;
-$enable-flag--rev:      false !default;
-$enable-flag--top:      false !default;
-$enable-flag--bottom:   false !default;
+$inuit-enable-flag--small:  false !default;
+$inuit-enable-flag--large:  false !default;
+$inuit-enable-flag--flush:  false !default;
+$inuit-enable-flag--rev:    false !default;
+$inuit-enable-flag--top:    false !default;
+$inuit-enable-flag--bottom: false !default;
 
 
 
@@ -29,8 +29,8 @@ $enable-flag--bottom:   false !default;
  * 2. Force the object to be the full width of its parent. Combined with [1],
  *    this makes the object behave in a quasi-`display: block;` manner.
  */
-.#{$namespace}flag,
-%#{$namespace}flag {
+.#{$inuit-namespace}flag,
+%#{$inuit-namespace}flag {
     display: table; /* [1] */
     width: 100%; /* [2] */
 }
@@ -40,10 +40,10 @@ $enable-flag--bottom:   false !default;
      *
      * 1. Default to aligning content to their middles.
      */
-    .#{$namespace}flag__img,
-    %#{$namespace}flag__img,
-    .#{$namespace}flag__body,
-    %#{$namespace}flag__body {
+    .#{$inuit-namespace}flag__img,
+    %#{$inuit-namespace}flag__img,
+    .#{$inuit-namespace}flag__body,
+    %#{$inuit-namespace}flag__body {
         display: table-cell;
         vertical-align: middle; /* [1] */
     }
@@ -51,9 +51,9 @@ $enable-flag--bottom:   false !default;
     /**
      * Flag images have a space between them and the body of the object.
      */
-    .#{$namespace}flag__img,
-    %#{$namespace}flag__img {
-        padding-right: $flag-gutter;
+    .#{$inuit-namespace}flag__img,
+    %#{$inuit-namespace}flag__img {
+        padding-right: $inuit-flag-gutter;
 
         > img {
             display: block;
@@ -67,8 +67,8 @@ $enable-flag--bottom:   false !default;
      *
      * 1. Forces the `.flag__body` to take up all remaining space.
      */
-    .#{$namespace}flag__body,
-    %#{$namespace}flag__body {
+    .#{$inuit-namespace}flag__body,
+    %#{$inuit-namespace}flag__body {
         width: 100%; /* [1] */
     }
 
@@ -80,23 +80,23 @@ $enable-flag--bottom:   false !default;
  * Size variants.
  */
 
-@if ($enable-flag--small == true) {
+@if ($inuit-enable-flag--small == true) {
 
-    .#{$namespace}flag--small,
-    %#{$namespace}flag--small {
+    .#{$inuit-namespace}flag--small,
+    %#{$inuit-namespace}flag--small {
 
-        > .#{$namespace}flag__img,
-        > %#{$namespace}flag__img {
-            padding-right: $flag-gutter--small;
+        > .#{$inuit-namespace}flag__img,
+        > %#{$inuit-namespace}flag__img {
+            padding-right: $inuit-flag-gutter--small;
         }
 
-        &.#{$namespace}flag--rev,
-        &%#{$namespace}flag--rev {
+        &.#{$inuit-namespace}flag--rev,
+        &%#{$inuit-namespace}flag--rev {
 
-            > .#{$namespace}flag__img,
-            > %#{$namespace}flag__img {
+            > .#{$inuit-namespace}flag__img,
+            > %#{$inuit-namespace}flag__img {
                 padding-right: 0;
-                padding-left:  $flag-gutter--small;
+                padding-left:  $inuit-flag-gutter--small;
             }
 
         }
@@ -105,23 +105,23 @@ $enable-flag--bottom:   false !default;
 
 }
 
-@if ($enable-flag--large == true) {
+@if ($inuit-enable-flag--large == true) {
 
-    .#{$namespace}flag--large,
-    %#{$namespace}flag--large {
+    .#{$inuit-namespace}flag--large,
+    %#{$inuit-namespace}flag--large {
 
-        > .#{$namespace}flag__img,
-        > %#{$namespace}flag__img {
-            padding-right: $flag-gutter--large;
+        > .#{$inuit-namespace}flag__img,
+        > %#{$inuit-namespace}flag__img {
+            padding-right: $inuit-flag-gutter--large;
         }
 
-        &.#{$namespace}flag--rev,
-        &%#{$namespace}flag--rev {
+        &.#{$inuit-namespace}flag--rev,
+        &%#{$inuit-namespace}flag--rev {
 
-            > .#{$namespace}flag__img,
-            > %#{$namespace}flag__img {
+            > .#{$inuit-namespace}flag__img,
+            > %#{$inuit-namespace}flag__img {
                 padding-right: 0;
-                padding-left:  $flag-gutter--large;
+                padding-left:  $inuit-flag-gutter--large;
             }
 
         }
@@ -138,13 +138,13 @@ $enable-flag--bottom:   false !default;
  * Flush flag objects have no space between the image- and text-content.
  */
 
-@if ($enable-flag--flush == true) {
+@if ($inuit-enable-flag--flush == true) {
 
-    .#{$namespace}flag--flush,
-    %#{$namespace}flag--flush {
+    .#{$inuit-namespace}flag--flush,
+    %#{$inuit-namespace}flag--flush {
 
-        .#{$namespace}flag__img,
-        %#{$namespace}flag__img {
+        .#{$inuit-namespace}flag__img,
+        %#{$inuit-namespace}flag__img {
             padding-right: 0;
             padding-left:  0;
         }
@@ -166,23 +166,23 @@ $enable-flag--bottom:   false !default;
  * 3. Reassign margins to the correct sides.
  */
 
-@if ($enable-flag--rev == true) {
+@if ($inuit-enable-flag--rev == true) {
 
-    .#{$namespace}flag--rev,
-    %#{$namespace}flag--rev {
+    .#{$inuit-namespace}flag--rev,
+    %#{$inuit-namespace}flag--rev {
         direction: rtl; /* [1] */
 
-        > .#{$namespace}flag__img,
-        > %#{$namespace}flag__img,
-        > .#{$namespace}flag__body,
-        > %#{$namespace}flag__body {
+        > .#{$inuit-namespace}flag__img,
+        > %#{$inuit-namespace}flag__img,
+        > .#{$inuit-namespace}flag__body,
+        > %#{$inuit-namespace}flag__body {
             direction: ltr; /* [2] */
         }
 
-        > .#{$namespace}flag__img,
-        > %#{$namespace}flag__img {
+        > .#{$inuit-namespace}flag__img,
+        > %#{$inuit-namespace}flag__img {
             padding-right: 0; /* [3] */
-            padding-left: $flag-gutter; /* [3] */
+            padding-left: $inuit-flag-gutter; /* [3] */
         }
 
     }
@@ -198,15 +198,15 @@ $enable-flag--bottom:   false !default;
  * text-content to the tops of bottoms of each other.
  */
 
-@if ($enable-flag--top == true) {
+@if ($inuit-enable-flag--top == true) {
 
-    .#{$namespace}flag--top,
-    %#{$namespace}flag--top {
+    .#{$inuit-namespace}flag--top,
+    %#{$inuit-namespace}flag--top {
 
-        .#{$namespace}flag__img,
-        %#{$namespace}flag__img,
-        .#{$namespace}flag__body,
-        %#{$namespace}flag__body {
+        .#{$inuit-namespace}flag__img,
+        %#{$inuit-namespace}flag__img,
+        .#{$inuit-namespace}flag__body,
+        %#{$inuit-namespace}flag__body {
             vertical-align: top;
         }
 
@@ -214,15 +214,15 @@ $enable-flag--bottom:   false !default;
 
 }
 
-@if ($enable-flag--bottom == true) {
+@if ($inuit-enable-flag--bottom == true) {
 
-    .#{$namespace}flag--bottom,
-    %#{$namespace}flag--bottom {
+    .#{$inuit-namespace}flag--bottom,
+    %#{$inuit-namespace}flag--bottom {
 
-        .#{$namespace}flag__img,
-        %#{$namespace}flag__img,
-        .#{$namespace}flag__body,
-        %#{$namespace}flag__body {
+        .#{$inuit-namespace}flag__img,
+        %#{$inuit-namespace}flag__img,
+        .#{$inuit-namespace}flag__body,
+        %#{$inuit-namespace}flag__body {
             vertical-align: bottom;
         }
 
