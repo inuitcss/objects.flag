@@ -143,8 +143,8 @@ $inuit-enable-flag--bottom: false !default;
     .#{$inuit-namespace}flag--flush,
     %#{$inuit-namespace}flag--flush {
 
-        .#{$inuit-namespace}flag__img,
-        %#{$inuit-namespace}flag__img {
+        > .#{$inuit-namespace}flag__img,
+        > %#{$inuit-namespace}flag__img {
             padding-right: 0;
             padding-left:  0;
         }
