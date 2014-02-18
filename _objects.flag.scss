@@ -90,13 +90,17 @@ $inuit-enable-flag--bottom: false !default;
             padding-right: $inuit-flag-gutter--small;
         }
 
-        &.#{$inuit-namespace}flag--rev,
-        &%#{$inuit-namespace}flag--rev {
+        @if ($inuit-enable-flag--rev == true) {
 
-            > .#{$inuit-namespace}flag__img,
-            > %#{$inuit-namespace}flag__img {
-                padding-right: 0;
-                padding-left:  $inuit-flag-gutter--small;
+            &.#{$inuit-namespace}flag--rev,
+            &%#{$inuit-namespace}flag--rev {
+
+                > .#{$inuit-namespace}flag__img,
+                > %#{$inuit-namespace}flag__img {
+                    padding-right: 0;
+                    padding-left:  $inuit-flag-gutter--small;
+                }
+
             }
 
         }
@@ -115,13 +119,17 @@ $inuit-enable-flag--bottom: false !default;
             padding-right: $inuit-flag-gutter--large;
         }
 
-        &.#{$inuit-namespace}flag--rev,
-        &%#{$inuit-namespace}flag--rev {
+        @if ($inuit-enable-flag--rev == true) {
 
-            > .#{$inuit-namespace}flag__img,
-            > %#{$inuit-namespace}flag__img {
-                padding-right: 0;
-                padding-left:  $inuit-flag-gutter--large;
+            &.#{$inuit-namespace}flag--rev,
+            &%#{$inuit-namespace}flag--rev {
+
+                > .#{$inuit-namespace}flag__img,
+                > %#{$inuit-namespace}flag__img {
+                    padding-right: 0;
+                    padding-left:  $inuit-flag-gutter--large;
+                }
+
             }
 
         }
