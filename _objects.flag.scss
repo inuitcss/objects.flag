@@ -15,8 +15,8 @@ $inuit-flag-gutter--large:  double($inuit-flag-gutter) !default;
 
 $inuit-enable-flag--small:  false !default;
 $inuit-enable-flag--large:  false !default;
-$inuit-enable-flag--flush:  false !default;
 $inuit-enable-flag--rev:    false !default;
+$inuit-enable-flag--flush:  false !default;
 $inuit-enable-flag--top:    false !default;
 $inuit-enable-flag--bottom: false !default;
 
@@ -135,29 +135,6 @@ $inuit-enable-flag--bottom: false !default;
 
 
 /**
- * Flush flag objects have no space between the image- and text-content.
- */
-
-@if ($inuit-enable-flag--flush == true) {
-
-    .#{$inuit-namespace}flag--flush,
-    %#{$inuit-namespace}flag--flush {
-
-        > .#{$inuit-namespace}flag__img,
-        > %#{$inuit-namespace}flag__img {
-            padding-right: 0;
-            padding-left:  0;
-        }
-
-    }
-
-}
-
-
-
-
-
-/**
  * Reversed flag objects have their image-content to the right, and text-content
  * to the left.
  *
@@ -183,6 +160,29 @@ $inuit-enable-flag--bottom: false !default;
         > %#{$inuit-namespace}flag__img {
             padding-right: 0; /* [3] */
             padding-left: $inuit-flag-gutter; /* [3] */
+        }
+
+    }
+
+}
+
+
+
+
+
+/**
+ * Flush flag objects have no space between the image- and text-content.
+ */
+
+@if ($inuit-enable-flag--flush == true) {
+
+    .#{$inuit-namespace}flag--flush,
+    %#{$inuit-namespace}flag--flush {
+
+        > .#{$inuit-namespace}flag__img,
+        > %#{$inuit-namespace}flag__img {
+            padding-right: 0;
+            padding-left:  0;
         }
 
     }
