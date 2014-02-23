@@ -6,9 +6,9 @@
  * The flag object is a design pattern similar to the media object, however it
  * utilises `display: table[-cell];` to give us control over the vertical
  * alignments of the text and image. csswizardry.com/2013/05/the-flag-object
- *
- * Predefine the variables below in order to alter and enable specific features.
  */
+
+// Predefine the variables below in order to alter and enable specific features.
 $inuit-flag-gutter:         $inuit-base-spacing-unit !default;
 $inuit-flag-gutter--small:  halve($inuit-flag-gutter) !default;
 $inuit-flag-gutter--large:  double($inuit-flag-gutter) !default;
@@ -76,11 +76,11 @@ $inuit-enable-flag--bottom: false !default;
 
 
 
-/**
- * Size variants.
- */
-
 @if ($inuit-enable-flag--small == true) {
+
+    /**
+     * Small flags.
+     */
 
     .#{$inuit-namespace}flag--small,
     %#{$inuit-namespace}flag--small {
@@ -91,6 +91,10 @@ $inuit-enable-flag--bottom: false !default;
         }
 
         @if ($inuit-enable-flag--rev == true) {
+
+            /**
+             * Small reversed flags.
+             */
 
             &.#{$inuit-namespace}flag--rev,
             &%#{$inuit-namespace}flag--rev {
@@ -111,6 +115,10 @@ $inuit-enable-flag--bottom: false !default;
 
 @if ($inuit-enable-flag--large == true) {
 
+    /**
+     * Large flags.
+     */
+
     .#{$inuit-namespace}flag--large,
     %#{$inuit-namespace}flag--large {
 
@@ -120,6 +128,10 @@ $inuit-enable-flag--bottom: false !default;
         }
 
         @if ($inuit-enable-flag--rev == true) {
+
+            /**
+             * Large reversed flags.
+             */
 
             &.#{$inuit-namespace}flag--rev,
             &%#{$inuit-namespace}flag--rev {
@@ -142,16 +154,16 @@ $inuit-enable-flag--bottom: false !default;
 
 
 
-/**
- * Reversed flag objects have their image-content to the right, and text-content
- * to the left.
- *
- * 1. Swap the rendered direction of the object…
- * 2. …and reset it.
- * 3. Reassign margins to the correct sides.
- */
-
 @if ($inuit-enable-flag--rev == true) {
+
+    /**
+     * Reversed flag objects have their image-content to the right, and text-content
+     * to the left.
+     *
+     * 1. Swap the rendered direction of the object…
+     * 2. …and reset it.
+     * 3. Reassign margins to the correct sides.
+     */
 
     .#{$inuit-namespace}flag--rev,
     %#{$inuit-namespace}flag--rev {
@@ -178,11 +190,11 @@ $inuit-enable-flag--bottom: false !default;
 
 
 
-/**
- * Flush flag objects have no space between the image- and text-content.
- */
-
 @if ($inuit-enable-flag--flush == true) {
+
+    /**
+     * Flush flag objects have no space between the image- and text-content.
+     */
 
     .#{$inuit-namespace}flag--flush,
     %#{$inuit-namespace}flag--flush {
@@ -201,12 +213,11 @@ $inuit-enable-flag--bottom: false !default;
 
 
 
-/**
- * Vertical alignment variations of the flag object. Either align image- and
- * text-content to the tops of bottoms of each other.
- */
-
 @if ($inuit-enable-flag--top == true) {
+
+    /**
+     * Vertically top aligned flag objects.
+     */
 
     .#{$inuit-namespace}flag--top,
     %#{$inuit-namespace}flag--top {
@@ -223,6 +234,10 @@ $inuit-enable-flag--bottom: false !default;
 }
 
 @if ($inuit-enable-flag--bottom == true) {
+
+    /**
+     * Vertically bottom aligned flag objects.
+     */
 
     .#{$inuit-namespace}flag--bottom,
     %#{$inuit-namespace}flag--bottom {
