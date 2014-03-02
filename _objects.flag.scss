@@ -9,16 +9,18 @@
  */
 
 // Predefine the variables below in order to alter and enable specific features.
-$inuit-flag-gutter:         $inuit-base-spacing-unit !default;
-$inuit-flag-gutter--small:  halve($inuit-flag-gutter) !default;
-$inuit-flag-gutter--large:  double($inuit-flag-gutter) !default;
+$inuit-flag-gutter:             $inuit-base-spacing-unit !default;
+$inuit-flag-gutter--small:      halve($inuit-flag-gutter) !default;
+$inuit-flag-gutter--large:      double($inuit-flag-gutter) !default;
 
-$inuit-enable-flag--small:  false !default;
-$inuit-enable-flag--large:  false !default;
-$inuit-enable-flag--rev:    false !default;
-$inuit-enable-flag--flush:  false !default;
-$inuit-enable-flag--top:    false !default;
-$inuit-enable-flag--bottom: false !default;
+$inuit-enable-flag--small:      false !default;
+$inuit-enable-flag--large:      false !default;
+$inuit-enable-flag--rev:        false !default;
+$inuit-enable-flag--flush:      false !default;
+$inuit-enable-flag--top:        false !default;
+$inuit-enable-flag--bottom:     false !default;
+$inuit-enable-flag--responsive: false !default;
+$inuit-flag-collapse-at:        720px !default;
 
 
 
@@ -247,6 +249,83 @@ $inuit-enable-flag--bottom: false !default;
         .#{$inuit-namespace}flag__body,
         %#{$inuit-namespace}flag__body {
             vertical-align: bottom;
+        }
+
+    }
+
+}
+
+
+
+
+@if ($inuit-enable-flag--responsive == true) {
+
+    /**
+     * Responsive flag objects.
+     */
+
+    @media screen and (max-width: $inuit-flag-collapse-at) {
+
+        .#{$inuit-namespace}flag--responsive,
+        %#{$inuit-namespace}flag--responsive {
+
+            @if ($inuit-enable-flag--rev == true) {
+                direction: ltr;
+            }
+
+            &,
+            > .#{$inuit-namespace}flag__img,
+            > %#{$inuit-namespace}flag__img,
+            > .#{$inuit-namespace}flag__body,
+            > %#{$inuit-namespace}flag__body {
+                display: block;
+            }
+
+            > .#{$inuit-namespace}flag__img,
+            > %#{$inuit-namespace}flag__img {
+                padding-right: 0;
+                padding-left:  0;
+                margin-bottom: $inuit-flag-gutter;
+            }
+
+            @if ($inuit-enable-flag--small == true) {
+
+                /**
+                 * Small responsive flags.
+                 */
+
+                &.#{$inuit-namespace}flag--small,
+                &%#{$inuit-namespace}flag--small {
+
+                    > .#{$inuit-namespace}flag__img,
+                    > %#{$inuit-namespace}flag__img {
+                        padding-right: 0;
+                        padding-left:  0;
+                    }
+
+                }
+
+            }
+
+            @if ($inuit-enable-flag--large == true) {
+
+                /**
+                 * Large responsive flags.
+                 */
+
+                &.#{$inuit-namespace}flag--large,
+                &%#{$inuit-namespace}flag--large {
+
+                    > .#{$inuit-namespace}flag__img,
+                    > %#{$inuit-namespace}flag__img {
+                        padding-right: 0;
+                        padding-left:  0;
+                    }
+
+                }
+
+            }
+
         }
 
     }
