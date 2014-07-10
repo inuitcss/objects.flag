@@ -72,6 +72,12 @@ $inuit-flag-collapse-at:        720px !default;
     .#{$inuit-namespace}flag__body,
     %#{$inuit-namespace}flag__body {
         width: 100%; /* [1] */
+
+        &,
+        > :last-child {
+            margin-bottom: 0;
+        }
+
     }
 
 
