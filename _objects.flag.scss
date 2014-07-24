@@ -12,11 +12,15 @@
 $inuit-flag-namespace:          $inuit-namespace !default;
 
 $inuit-flag-gutter:             $inuit-base-spacing-unit !default;
-$inuit-flag-gutter--small:      halve($inuit-flag-gutter) !default;
-$inuit-flag-gutter--large:      double($inuit-flag-gutter) !default;
+$inuit-flag-gutter--tiny:         quarter($inuit-flag-gutter) !default;
+$inuit-flag-gutter--small:          halve($inuit-flag-gutter) !default;
+$inuit-flag-gutter--large:         double($inuit-flag-gutter) !default;
+$inuit-flag-gutter--huge:       quadruple($inuit-flag-gutter) !default;
 
+$inuit-enable-flag--tiny:       false !default;
 $inuit-enable-flag--small:      false !default;
 $inuit-enable-flag--large:      false !default;
+$inuit-enable-flag--huge:       false !default;
 $inuit-enable-flag--rev:        false !default;
 $inuit-enable-flag--flush:      false !default;
 $inuit-enable-flag--top:        false !default;
@@ -86,6 +90,43 @@ $inuit-flag-collapse-at:        720px !default;
 
 
 
+@if ($inuit-enable-flag--tiny == true) {
+
+    /**
+     * Tiny flags.
+     */
+
+    .#{$inuit-flag-namespace}flag--tiny,
+    %#{$inuit-flag-namespace}flag--tiny {
+
+        > .#{$inuit-flag-namespace}flag__img,
+        > %#{$inuit-flag-namespace}flag__img {
+            padding-right: $inuit-flag-gutter--tiny;
+        }
+
+        @if ($inuit-enable-flag--rev == true) {
+
+            /**
+             * Tiny reversed flags.
+             */
+
+            &.#{$inuit-flag-namespace}flag--rev,
+            &%#{$inuit-flag-namespace}flag--rev {
+
+                > .#{$inuit-flag-namespace}flag__img,
+                > %#{$inuit-flag-namespace}flag__img {
+                    padding-right: 0;
+                    padding-left:  $inuit-flag-gutter--tiny;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
 @if ($inuit-enable-flag--small == true) {
 
     /**
@@ -150,6 +191,43 @@ $inuit-flag-collapse-at:        720px !default;
                 > %#{$inuit-flag-namespace}flag__img {
                     padding-right: 0;
                     padding-left:  $inuit-flag-gutter--large;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+@if ($inuit-enable-flag--huge == true) {
+
+    /**
+     * Huge flags.
+     */
+
+    .#{$inuit-flag-namespace}flag--huge,
+    %#{$inuit-flag-namespace}flag--huge {
+
+        > .#{$inuit-flag-namespace}flag__img,
+        > %#{$inuit-flag-namespace}flag__img {
+            padding-right: $inuit-flag-gutter--huge;
+        }
+
+        @if ($inuit-enable-flag--rev == true) {
+
+            /**
+             * Huge reversed flags.
+             */
+
+            &.#{$inuit-flag-namespace}flag--rev,
+            &%#{$inuit-flag-namespace}flag--rev {
+
+                > .#{$inuit-flag-namespace}flag__img,
+                > %#{$inuit-flag-namespace}flag__img {
+                    padding-right: 0;
+                    padding-left:  $inuit-flag-gutter--huge;
                 }
 
             }
@@ -313,6 +391,30 @@ $inuit-flag-collapse-at:        720px !default;
                 margin-bottom: $inuit-flag-gutter;
             }
 
+            @if ($inuit-enable-flag--tiny == true) {
+
+                /**
+                 * Tiny responsive flags.
+                 *
+                 * Take a little more heavy-handed approach to reworking
+                 * spacings on flags that are also tiny flags in their regular
+                 * state.
+                 */
+
+                &.#{$inuit-flag-namespace}flag--tiny,
+                &%#{$inuit-flag-namespace}flag--tiny {
+
+                    > .#{$inuit-flag-namespace}flag__img,
+                    > %#{$inuit-flag-namespace}flag__img {
+                        padding-right: 0;
+                        padding-left:  0;
+                        margin-bottom: $inuit-flag-gutter--tiny;
+                    }
+
+                }
+
+            }
+
             @if ($inuit-enable-flag--small == true) {
 
                 /**
@@ -330,6 +432,7 @@ $inuit-flag-collapse-at:        720px !default;
                     > %#{$inuit-flag-namespace}flag__img {
                         padding-right: 0;
                         padding-left:  0;
+                        margin-bottom: $inuit-flag-gutter--small;
                     }
 
                 }
@@ -353,6 +456,31 @@ $inuit-flag-collapse-at:        720px !default;
                     > %#{$inuit-flag-namespace}flag__img {
                         padding-right: 0;
                         padding-left:  0;
+                        margin-bottom: $inuit-flag-gutter--large;
+                    }
+
+                }
+
+            }
+
+            @if ($inuit-enable-flag--huge == true) {
+
+                /**
+                 * Huge responsive flags.
+                 *
+                 * Take a little more heavy-handed approach to reworking
+                 * spacings on flags that are also huge flags in their regular
+                 * state.
+                 */
+
+                &.#{$inuit-flag-namespace}flag--huge,
+                &%#{$inuit-flag-namespace}flag--huge {
+
+                    > .#{$inuit-flag-namespace}flag__img,
+                    > %#{$inuit-flag-namespace}flag__img {
+                        padding-right: 0;
+                        padding-left:  0;
+                        margin-bottom: $inuit-flag-gutter--huge;
                     }
 
                 }
