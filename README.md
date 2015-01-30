@@ -7,3 +7,7 @@ more advanced functionality.
 Install using Bower:
 
     $ bower install --save inuit-flag
+
+Install using npm:
+
+    $ npm install --save inuit-flag
