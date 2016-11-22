@@ -62,6 +62,7 @@ $inuit-flag-collapse-at:        720px !default;
     .#{$inuit-flag-namespace}flag__img,
     %#{$inuit-flag-namespace}flag__img {
         padding-right: $inuit-flag-gutter;
+        max-width: none;
 
         > img {
             display: block;
